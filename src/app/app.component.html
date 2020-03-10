@@ -1,0 +1,8 @@
+<div class="bg-wrap" [class.show]="this.qvService.quickViewOn" (click)="this.qvService.qvOff()">
+</div>
+<app-view-house class="qv-style" [class.show]="this.qvService.quickViewOn">
+</app-view-house>
+<div [class.quick-view-on]="this.qvService.quickViewOn">
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+</div>

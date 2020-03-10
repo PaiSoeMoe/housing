@@ -1,0 +1,77 @@
+//list detail
+
+.list-details-tab.nav-tabs .nav-link {
+text-align: left;
+border-bottom: 1px solid #ddd;
+}
+.list-details-tab.nav-tabs .nav-link.active {
+border-bottom: none;
+}
+
+.list-details-tab.nav-tabs {
+border-bottom: none;
+}
+.list-details-tab.nav-tabs.pricing-list .nav-item {
+margin-right: 0;
+text-align: left;
+}
+
+.list-details-tab.nav-tabs.pricing-list .nav-item:first-child {
+padding-right: 15px;
+}
+.list-details-tab .nav-item {
+margin-bottom: 0 !important;
+margin-right: 25px;
+position: relative;
+padding: 10px 0;
+}
+.sidebar-content-left .list-details-tab .nav-item,
+.sidebar-content-right .list-details-tab .nav-item {
+padding-top: 0;
+}
+
+.trending-places .list-details-tab .nav-item {
+padding: 0 0 15px 0;
+line-height: 1.1;
+}
+
+.list-details-tab .nav-item:after {
+position: absolute;
+bottom: -1px;
+left: 0;
+width: 0;
+height: 1px;
+content: "";
+background: #6449E7;
+visibility: hidden;
+opacity: 0;
+transition: 0.5s;
+border-color: transparent;
+}
+
+.list-details-tab .nav-item.active:after,
+.list-details-tab .nav-item:hover:after {
+visibility: visible;
+opacity: 1;
+width: 100%;
+}
+
+.list-details-tab .nav-item.active a {
+color: #6449E7;
+}
+
+.list-details-tab .nav-item a {
+font-size: 16px;
+font-weight: 500;
+}
+
+.list-details-section:first-child {
+padding-top: 30px !important;
+}
+
+
+.nav-item{
+    cursor:pointer;
+}
+// end list detail
+

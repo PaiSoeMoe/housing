@@ -1,0 +1,225 @@
+.hero-parallax {
+    background-size: cover;
+    background-position: center;
+    background-color: #ddd;
+    height: 760px;
+    position: relative;
+}
+
+.hero-slider-item {
+    padding: 150px 0;
+}
+
+.slider-form.v1 .hero__form.v1 {
+    border-radius: 3px;
+    padding: 15px;
+    transform: translateY(-55px);
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: #f7f7f7;
+}
+
+.slider-form.v2 .hero__form.v1 {
+    border-radius: 3px;
+    padding: 15px;
+    transform: translateY(0);
+    z-index: 10;
+    background: #f7f7f7;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/*---------Style2------------*/
+// .hero-slider.v2 .property-feature {
+//     columns: 3;
+// }
+
+// .hero-slider.v2 .list-details-title.v3 {
+//     background: #fff;
+//     padding: 30px;
+//     z-index: 99;
+//     position: absolute;
+//     top: 150px;
+//     width: 500px;
+//     transform: translateY(50%);
+// }
+
+// .hero-slider.v2 .list-details-title.v2 .single-listing-title h2,
+// .hero-slider.v2 .list-details-title.v2 .single-listing-title p,
+// .hero-slider.v2 .list-details-title.v2 .single-listing-title p i,
+// .hero-slider.v2 .list-details-title.v2 .list-ratings a,
+// .hero-slider.v2 .list-details-title.v2 .list-details-btn .trend-open p span,
+// .hero-slider.v2 .list-details-title.v2 .list-details-btn .trend-open p {
+//     color: #333;
+// }
+
+// .hero-slider.v2 .list-details-title.v3 .list-ratings {
+//     margin-left: 0;
+// }
+
+// .hero-slider.v2 .list-details-title.v3 .trend-open p {
+//     margin-left: 0;
+//     margin-bottom: 10px;
+//     font-size: 20px;
+// }
+
+// .hero-slider.v2 .list-details-title.v3 .property-feature {
+//     columns: 4;
+//     padding: 5px 0;
+// }
+
+
+.header-text.v1 {
+    text-align: center
+}
+
+.header-text.v2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.header-text.v2 span {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.header-text.v1 h1 {
+    margin-bottom: 30px;
+}
+
+.header-text.v2 h1 {
+    font-size: 48px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: capitalize;
+}
+
+.header-text.v2 p {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.hero__form.v2.filter.listing-filter .dropdown-filter span,
+.hero__form.v2.filter.listing-filter .dropdown-filter span:before {
+    color: #FFF;
+}
+
+.hero__form.v2 {
+    padding: 15px;
+    position: relative;
+    /*    background: rgba(48, 52, 65, 0.58);*/
+}
+
+.sidebar .hero__form.v2 {
+    padding: 0;
+    /*    background: rgba(48, 52, 65, 0.58);*/
+}
+
+.widget .hero__form.v2 {
+    background: transparent;
+}
+
+.hero__form.v2.style2 {
+
+    background: #fff;
+    border-top-left-radius: 0;
+}
+
+.hero__form.v2 .btn-default.btn-default-red {
+    margin-left: 85px;
+}
+
+.input-search {
+    position: relative;
+}
+
+.input-search:before {
+    color: #222222;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    content: "\f002";
+    font-family: "FontAwesome";
+    font-size: 18px;
+}
+
+.listing-filter input[type="text"] {
+    padding: 4px 15px 0 45px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    height: 45px;
+}
+
+input[type="text"]:focus {
+    border: 1px solid #888 !important;
+}
+
+.hero__form .hero__form-input {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+
+}
+
+.hero__form .nice-select.hero__form-input {
+    font-size: 15px;
+    height: 45px;
+    background: #fff;
+    line-height: 25px;
+}
+
+
+.hero__form.bg-grey.filter .btn.v3 {
+    margin-left: 77px;
+}
+
+.hero__form.v3 {
+    background: #fff;
+    padding: 30px;
+
+}
+
+.hero__form.v3 h4 {
+    text-transform: capitalize;
+}
+
+
+.hero__form.v3 .search_btn a {
+    display: block;
+    background: #6449E7;
+    color: #fff;
+    padding: 15px 0;
+    border-radius: 3px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 0.01rem;
+}
+
+
+@media only screen and (min-width: 1025px) {
+
+    .bg-fixed {
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+}
+@media only screen and (max-width: 767px){
+    .hero-parallax {
+    height: 980px;
+}.hero__form.v3 {
+    background: rgba(0, 0, 0, 0.34);
+    padding: 15px;
+}
+.hero__form.v3 h4 {
+    color: #fff;
+}
+}

@@ -1,0 +1,26 @@
+<div class="featured-property-section v2 bg-cb">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-lg-12">
+                <div class="section-title v2">
+                    <p>Check out some of our</p>
+                    <h2>Featured Properties</h2>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-12">
+                <div class="featured-property-wrap v2 swiper-container" style="overflow:hidden">
+                    <div class="swiper-wrapper" [style.transform]="slider" [class.trn-zero]="trnZero">
+                        <app-feature-property-card *ngFor="let property of properties" [property]="property">
+                        </app-feature-property-card>
+
+                    </div>
+                    <!--Slider Arrows-->
+                    <div class="slider-btn v2 featured_prev" (click)="prev($event)"><i class="lnr lnr-arrow-left"></i>
+                    </div>
+                    <div class="slider-btn v2 featured_next" (click)="next($event)"><i class="lnr lnr-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

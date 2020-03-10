@@ -1,0 +1,64 @@
+<div class="trending-places pt-130 pb-130">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title v1">
+                    <p>Find rental properties anywhere</p>
+                    <h2>Discover Popular Properties</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="nav nav-tabs list-details-tab">
+                    <li class="nav-item" [class.active]="tab.active" *ngFor="let tab of tabs"
+                        (click)="changeTab($event,tab.name)">
+                        <a data-toggle="tab">{{
+                                                tab.name}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-12">
+                <div class="tab-content mt-30">
+                    <div class="tab-pane fade show active" id="all_property" *ngFor="let tab of tabs"
+                        [class.active]="tab.active" [class.show]="tab.active">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6 col-sm-12" *ngFor="let item of tab.items">
+                                <app-trending-places-card [item]="item"></app-trending-places-card>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="tab-pane fade" id="for_sale">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6 col-sm-12">
+                                <app-trending-places-card></app-trending-places-card>
+                            </div>
+                            <div class="col-xl-4 col-md-6 col-sm-12">
+                                <app-trending-places-card></app-trending-places-card>
+                            </div>
+                            <div class="col-xl-4 col-md-6 col-sm-12">
+                                <app-trending-places-card></app-trending-places-card>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="for_rent">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6 col-sm-12">
+                                <app-trending-places-card></app-trending-places-card>
+                            </div>
+                            <div class="col-xl-4 col-md-6 col-sm-12">
+                                <app-trending-places-card></app-trending-places-card>
+                            </div>
+                            <div class="col-xl-4 col-md-6 col-sm-12">
+                                <app-trending-places-card></app-trending-places-card>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-md-12 text-center mt-1">
+                <a routerLink="listing" class="btn v9">Browse More</a>
+            </div>
+        </div>
+    </div>
+</div>

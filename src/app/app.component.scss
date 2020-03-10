@@ -1,0 +1,17 @@
+.quick-view-on{
+    max-height: 2vh;
+    overflow: hidden;
+}
+
+.show{
+    display:block !important;
+}
+
+.bg-wrap{
+    min-width: 100vw;top:0; min-height: 200vh; background-color: rgba(0, 0, 0, 0.39);z-index: 100000; position: absolute; display:none
+}
+
+.qv-style{
+    position:absolute; top:0; left:50%; transform:translate(-50%,150px); z-index: 100000000; display:none
+}
+
