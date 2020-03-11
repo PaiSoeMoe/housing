@@ -4,11 +4,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class QuickViewService {
-
   quickViewOn = false;
   home;
   curLocation;
+
   constructor() { }
+
+
 
   qvOn(home) {
     this.home = home;
@@ -19,8 +21,8 @@ export class QuickViewService {
 
   qvOff() {
     this.quickViewOn = false;
+
     setTimeout(() => { window.scroll(0, this.curLocation) }, 0)
   }
-
 
 }

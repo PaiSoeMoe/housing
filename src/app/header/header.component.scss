@@ -387,7 +387,11 @@ color: #fff;
 }
 
 .site-navbar-wrap.v2 .mobile-bar span {
-color: #000;
+    color: #000;
+
+}
+.sm-right a {
+    cursor:pointer;
 }
 
 .site-mobile-menu-close.js-menu-toggle span {
@@ -660,3 +664,28 @@ max-width: 850px;
     background-color: #6449e7;
     color: #fff !important;
 }
+
+
+@media screen and (max-width: 991px){
+
+    .menu-btn{
+        display:none;
+    }
+    .sm-right{
+        text-align: right !important;
+        padding: 1em;
+    }
+}
+
+@media screen and (max-width: 767px){
+        .sm-right{
+        float: right !important;
+    }
+
+
+}
+
+
+
+
+

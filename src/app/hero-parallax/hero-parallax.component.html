@@ -15,51 +15,58 @@
                         </div>
                         <div class="col-xl-4 offset-xl-2 col-lg-5 offset-lg-1 col-md-12">
                             <div class="hero-slider-info">
-                                <form class="hero__form v3 filter listing-filter">
+                                <form class="hero__form v3 filter listing-filter" ngForm #first="ngForm">
                                     <h4>Find your dream home</h4>
                                     <div class="row">
                                         <div class="col-md-12 mb-3">
                                             <div class="input-search">
-                                                <input type="text" name="place-event" id="place-event"
-                                                    placeholder="Enter Property, Location, Landmark ...">
+                                                <input type="text" name="place" id="place-event"
+                                                    placeholder="Enter Zip Code, City, Location ..." ngModel>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-4 col-sm-6 mb-3">
-                                            <select class="hero__form-input  custom-select">
+                                            <select class="hero__form-input  custom-select" name="status"
+                                                ngModel="Property Status">
                                                 <option>Property Status</option>
-                                                <option>Any</option>
                                                 <option>For Rent</option>
                                                 <option>For Sale</option>
                                             </select>
                                         </div>
                                         <div class="col-lg-12 col-md-4 col-sm-6 mb-3">
-                                            <select class="hero__form-input  custom-select">
+                                            <select class="hero__form-input  custom-select" name="type"
+                                                ngModel="Property Type">
                                                 <option>Property Type</option>
-                                                <option>Residential</option>
-                                                <option>Commercial</option>
-                                                <option>Land</option>
+                                                <option>Houses</option>
+                                                <option>Condos/co-ops</option>
+                                                <option>Apartments</option>
                                             </select>
                                         </div>
                                         <div class="col-6 col-lg-6 col-md-4 col-sm-6 mb-3">
-                                            <select class="hero__form-input  custom-select">
+                                            <select class="hero__form-input  custom-select" name="bed" ngModel="Bed">
                                                 <option>Bed</option>
-                                                <option>4</option>
-                                                <option>3</option>
-                                                <option>2</option>
+                                                <option>1+</option>
+                                                <option>2+</option>
+                                                <option>3+</option>
+                                                <option>4+</option>
+                                                <option>5+</option>
                                             </select>
                                         </div>
                                         <div class="col-6 col-lg-6 col-md-4 col-sm-6 mb-3">
-                                            <select class="hero__form-input  custom-select">
+                                            <select class="hero__form-input  custom-select" name="bath" ngModel="Bath">
                                                 <option>Bath</option>
-                                                <option>4</option>
-                                                <option>3</option>
-                                                <option>2</option>
+                                                <option>1+</option>
+                                                <option>2+</option>
+                                                <option>3+</option>
+                                                <option>4+</option>
+                                                <option>5+</option>
                                             </select>
                                         </div>
                                         <div class="col-lg-12 col-md-8 col-sm-12">
                                             <div class="filter-sub-area style1">
                                                 <div class="filter-title mb-10">
-                                                    <p>Price : <span><input type="text" id="amount_two"></span></p>
+                                                    <p>Price : <span><input type="text" id="amount_two" name="price"
+                                                                ngModel></span>
+                                                    </p>
                                                 </div>
                                                 <div id="slider-range_two" class="price-range mb-20">
                                                 </div>
@@ -67,7 +74,7 @@
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="search_btn">
-                                                <a routerLink="listing">Search Property</a>
+                                                <a (click)="findHouses(first)">Search Property</a>
                                             </div>
                                         </div>
                                     </div>

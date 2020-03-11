@@ -17,7 +17,9 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeCardComponent } from './home-card/home-card.component';
 import { IndexComponent } from './index/index.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ViewHouseComponent } from './view-house/view-house.component'
+import { ViewHouseComponent } from './view-house/view-house.component';
+import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -38,12 +40,14 @@ import { ViewHouseComponent } from './view-house/view-house.component'
     FooterComponent,
     HomeCardComponent,
     IndexComponent,
-    ViewHouseComponent
+    ViewHouseComponent,
+    MobileMenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
