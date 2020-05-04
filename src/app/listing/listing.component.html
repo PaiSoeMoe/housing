@@ -1,4 +1,4 @@
-<div class="filter-wrapper style1 mt-115 half-map">
+<div class="filter-wrapper style1 mt-50 half-map">
     <div class="container-fluid">
         <div class="row">
             <div class="explore__map-side v2">
@@ -15,39 +15,45 @@
                     <div class="row align-items-center">
 
                         <div class="col-lg-6 col-sm-7 col-7 sort">
-                            <select class="hero__form-input  custom-select">
-                                <option>Sort by Newest </option>
-                                <option>Sort by Oldest</option>
-                                <option>Sort by Price(Low to High) </option>
-                                <option>Sort by Price(high to Low) </option>
-                            </select>
+
                         </div>
                         <div class="col-lg-6 col-sm-12 showing">
                             <div class="item-element res-box  sm-left">
-                                <p>Showing <span>1-15 of 69</span> Listings</p>
+                                <p>Showing
+                                    <span>{{(pageNo-1)*10 +1}}–{{filteredHouses?.length>pageNo*10?pageNo*10:filteredHouses?.length}}
+                                        of
+                                        {{filteredHouses?.length}}</span> Listings</p>
                             </div>
                         </div>
                     </div>
                     <form class="hero__form v1 filter map-filter pt-20     ">
                         <div class="row">
-                            <div class="col-lg-8 col-md-7 col-sm-6 col-12 search">
-                                <div class="input-search">
-                                    <input type="text" name="place-event" id="place-event"
-                                        placeholder="Search by city or Address...">
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-9 pl-0">
-                                <select class="hero__form-input  custom-select">
-                                    <option>For Rent </option>
-                                    <option>For Sale </option>
-                                    <option>All </option>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-12 search">
+
+                                <select class="hero__form-input  custom-select" (change)="sort($event)">
+                                    <option value="relevance">Sort by Relevance</option>
+                                    <option value="desc">Sort by Price(high to Low) </option>
+                                    <option value="asc">Sort by Price(Low to High) </option>
                                 </select>
                             </div>
-                            <div class="col-lg-1 col-md-2 col-sm-2 col-3 pl-0">
-                                <div class="filter-sub-menu style1 v1">
-                                    <div class="dropdown-filter"><i class="fas fa-cog"></i></div>
-                                </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-6 pl-0">
+                                <select class="hero__form-input  custom-select" (change)="changeStatus($event)">
+                                    <option value="">Property Status</option>
+                                    <option value="rent">For Rent </option>
+                                    <option value="sale">For Sale </option>
+
+                                </select>
                             </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-6 pl-0">
+                                <select class="hero__form-input  custom-select" (change)="changeType($event)">
+                                    <option value="">Property Type</option>
+                                    <option value="house">Houses </option>
+                                    <option value="condo">Condos</option>
+                                    <option value="townhouse">Townhomes</option>
+                                </select>
+                            </div>
+
+
                             <div class="explore__form-checkbox-list full-filter">
                                 <div class="row">
                                     <div class="col-md-4 col-sm-12 mb-15 pr-0">
@@ -149,7 +155,7 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade  show active property-grid" id="grid-view">
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-12 col-lg-12" *ngFor="let house of houses">
+                                    <div class="col-md-6 col-sm-12 col-lg-12" *ngFor="let house of paginatedHouses">
                                         <app-home-card [home]="house"></app-home-card>
                                     </div>
                                 </div>
@@ -159,11 +165,13 @@
                                         <div class="col-md-8 offset-md-2  col-xs-12 ">
                                             <div class="page-num text-center">
                                                 <ul>
-                                                    <li class="active"><a href="#">1</a></li>
-                                                    <li><a href="#">2</a></li>
-                                                    <li><a href="#">3</a></li>
-                                                    <li><a href="#">4</a></li>
-                                                    <li><a href="#"><i class="lnr lnr-chevron-right"></i></a></li>
+                                                    <li (click)="prev($event)"><a><i class="fas fa-arrow-left"></i></a>
+                                                    </li>
+                                                    <li *ngFor="let page of pages" [class.active]="pageNo===page"
+                                                        (click)="paginate($event,page)">
+                                                        <a>{{page}}</a></li>
+                                                    <li (click)="next($event)"><a><i class="fas fa-arrow-right"></i></a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>

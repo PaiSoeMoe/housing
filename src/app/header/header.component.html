@@ -5,15 +5,15 @@
             <div class="site-navbar">
                 <div class="row align-items-center">
                     <div class="col-lg-2 col-md-6 col-9 order-2 order-xl-1 order-lg-1 order-md-1">
-                        <a class="navbar-brand" routerLink="/"><img src="images/logo-white.png" alt="logo"
-                                class="img-fluid"></a>
+                        <a class="navbar-brand" routerLink="/"><img src="assets/img/luxury.png" alt="logo"
+                                class="img-fluid" style="max-height:50px"></a>
                     </div>
                     <div class="col-lg-6 col-md-1 col-3  order-3 order-xl-2 order-lg-2 order-md-3 pl-xs-0">
                         <nav class="site-navigation text-right">
                             <div class="container">
                                 <ul class="site-menu js-clone-nav d-none d-lg-block">
                                     <li class="has-children">
-                                        <a routerLink='/listing' [queryParams]="{status: 'buy'}"> Buy</a>
+                                        <a routerLink='/listing' [queryParams]="{status: 'sale'}"> Buy</a>
                                     </li>
                                     <li class="has-children">
                                         <a routerLink='/listing' [queryParams]="{status: 'rent'}">Rent</a>
@@ -21,19 +21,19 @@
                                     <li class="has-children">
                                         <a routerLink="listing">Listing</a>
                                         <ul class="dropdown sub-menu">
-                                            <li><a routerLink="listing"
-                                                    [queryParams]="{listingType:'homes-for-sale'}">Homes for sale</a>
+                                            <li><a routerLink="listing" [queryParams]="{status:'sale'}">Homes
+                                                    for sale</a>
                                             </li>
                                             <li><a routerLink="listing"
-                                                    [queryParams]="{listingType:'foreclosures'}">Foreclosures </a></li>
-                                            <li><a routerLink="listing"
-                                                    [queryParams]="{listingType:'sale-by-owner'}">For sale by owner </a>
+                                                    [queryParams]="{listing:'foreclosures'}">Foreclosures </a></li>
+                                            <li><a routerLink="listing" [queryParams]="{listing:'sale by owner'}">For
+                                                    sale by owner </a>
                                             </li>
-                                            <li><a routerLink="listing" [queryParams]="{listingType:'open-house'}">Open
+                                            <li><a routerLink="listing" [queryParams]="{listing:'open house'}">Open
                                                     houses </a>
                                             </li>
-                                            <li><a routerLink="listing"
-                                                    [queryParams]="{listingType:'new-construction'}">New construction
+                                            <li><a routerLink="listing" [queryParams]="{listing:'new construction'}">New
+                                                    construction
                                                 </a>
                                             </li>
                                         </ul>
@@ -41,11 +41,12 @@
                                     <li class="has-children">
                                         <a routerLink="/listing">Property</a>
                                         <ul class="dropdown">
-                                            <li><a routerLink="/listing" [queryParams]="{type:'houses'}">Houses</a></li>
+                                            <li><a routerLink="/listing" [queryParams]="{type:'house'}">Houses</a></li>
                                             <li><a routerLink="/listing"
-                                                    [queryParams]="{type:'condos/co-ops'}">Condos-co-ops</a></li>
+                                                    [queryParams]="{type:'condo'}">Condos-co-ops</a></li>
                                             <li><a routerLink="/listing"
-                                                    [queryParams]="{type:'apartments'}">Apartments</a></li>
+                                                    [queryParams]="{type:'townhouse'}">Townhomes</a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="has-children">

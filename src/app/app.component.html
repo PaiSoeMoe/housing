@@ -1,6 +1,20 @@
 <app-mobile-menu></app-mobile-menu>
+<div class="slider-wrap" *ngIf="this.qvService.sliderWrap" (click)="this.qvService.sliderOff()">
+    <div class="close-slide">
+        <i class="fa fa-times"></i>
+    </div>
+    <div class="img-box" (click)="stop($event)">
+        <img [src]="this.qvService.curPhoto" alt="" style="min-width:100%;">
+        <div class="prev" (click)="this.qvService.prev($event)"><i class="fa fa-chevron-left"></i>
+        </div>
+        <div class="next" (click)="this.qvService.next($event)"><i class="fa fa-chevron-right"></i>
+        </div>
+    </div>
+
+</div>
 <div class="bg-wrap" [class.show]="this.qvService.quickViewOn" (click)="this.qvService.qvOff()">
 </div>
+
 <app-view-house class="qv-style" [class.show]="this.qvService.quickViewOn">
 </app-view-house>
 <div [class.quick-view-on]="this.qvService.quickViewOn">

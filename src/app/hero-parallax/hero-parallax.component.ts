@@ -13,7 +13,17 @@ export class HeroParallaxComponent implements OnInit {
   ngOnInit() {
   }
   findHouses(q) {
-    console.log(q);
-    this.router.navigate(["/listing", q.value])
+    let query = q.value;
+    let defaultValues = ["Property Status", "Property Type", "Bed", "Bath"];
+    let keys = Object.keys(query);
+    for (let key of keys) {
+      if (defaultValues.indexOf(query[key]) > -1) {
+        query[key] = "";
+      }
+    }
+
+    this.router.navigate(["/listing"], { queryParams: query })
   }
 }
+
+

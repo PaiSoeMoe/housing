@@ -1,40 +1,43 @@
+<div class="site-mobile-menu-close  js-menu-toggle">
+    <i class="fa fa-times" (click)="qvOff($event)"></i>
+</div>
+
 <div style="background: black;">
     <div class="m-container" style="background-color: white;">
         <div class="img-container">
             <div class="main-img imgs">
-                <img [src]="this.qvService.home?.gallery[0]" alt="">
+                <img [src]="this.qvService.home?.gallery[0]" alt="" (click)="showSlider(0)">
             </div>
             <div class="b-imgs">
                 <div class="imgs">
-                    <img [src]="this.qvService.home?.gallery[0]" alt="">
+                    <img [src]="this.qvService.home?.gallery[1]" alt="" (click)="showSlider(1)">
                 </div>
                 <div class="imgs">
-                    <img [src]="this.qvService.home?.gallery[1]" alt="">
+                    <img [src]="this.qvService.home?.gallery[2]" alt="" (click)="showSlider(2)">
                 </div>
                 <div class="imgs">
-                    <img [src]="this.qvService.home?.gallery[2]" alt="">
+                    <img [src]="this.qvService.home?.gallery[3]" alt="" (click)="showSlider(3)">
                 </div>
                 <div class="imgs">
-                    <img [src]="this.qvService.home?.gallery[3]" alt="">
+                    <img [src]="this.qvService.home?.gallery[4]" alt="" (click)="showSlider(4)">
                 </div>
             </div>
         </div>
         <div class="information">
-            <div class="info" style="margin-left:5em">
-                <h2 style="color:rgb(87, 87, 87);margin-top:1em;"><i class="fas fa-map-marker-alt"></i> 105 Founders
-                    Ridge
-                    Dr,
-                    Chapel Hill, NC 27517</h2>
+            <div class="info">
+                <h2 style="color:rgb(87, 87, 87);margin-top:1em;"><i
+                        class="fas fa-map-marker-alt"></i>{{this.qvService.home?.location}}</h2>
                 <p style="color:rgb(87, 87, 87);margin-top:1em; font-size: 1.2rem; margin-top: 0;">
-                    <span>$11,995,000 </span><span>|</span>
-                    <span> 3 bed </span> <span>|</span>
-                    <span> 4 bath </span><span>|</span>
-                    <span> 1670 sqft </span>
+                    <span>{{this.qvService.home?.price| currency:'USD':'symbol':'1.0' }} </span><span>|</span>
+                    <span> {{this.qvService.home?.bd}} bed </span> <span>|</span>
+                    <span> {{this.qvService.home?.ba}} bath </span><span>|</span>
+                    <span> {{this.qvService.home?.sqft}} sqft </span>
                 </p>
                 <div>
                     <h3 style="margin-bottom: 0.3em;color:rgb(87, 87, 87);">Description</h3>
                     <p style="margin-top: 0;">
-                        One of the last great estates on Lakeside Drive, this home has not been available for 40 years.
+                        One of the last great estates at {{this.qvService.home?.location}}, this home has not been
+                        available for 40 years.
                         Sited on
                         1.3 acres, the
                         property offers the main house, detached quarters, cabana, tennis court and putting green. A
@@ -47,19 +50,18 @@
                     <h3 style="margin-bottom: 0.3em;color:rgb(87, 87, 87);">Features</h3>
 
                     <ul style="margin-top: 0;" class="listing-features">
-                        <li><i class="fa fa-paw"></i>Pets:</li>
-                        <li><i class="fa fa-fan"></i>Heating:</li>
-                        <li><i class="fa fa-car-side"></i>Parking:</li>
-                        <li><i class="fa fa-dumpster"></i>Laundry:</li>
-                        <li><i class="fa fa-swimmer"></i>Pool:</li>
-                        <li><i class="fa fa-dumbbell"></i>Gym:</li>
+                        <li><i class="fa fa-paw"></i>Pets: {{this.qvService.home?.features.pets}}</li>
+                        <li><i class="fa fa-fan"></i>Heating: {{this.qvService.home?.features.heating}}</li>
+                        <li><i class="fa fa-car-side"></i>Parking: {{this.qvService.home?.features.parking}}</li>
+                        <li><i class="fa fa-dumpster"></i>Laundry: {{this.qvService.home?.features.laundry}}</li>
+                        <li><i class="fa fa-swimmer"></i>Pool: {{this.qvService.home?.features.pool}}</li>
+                        <li><i class="fa fa-dumbbell"></i>Gym: {{this.qvService.home?.features.gym}}</li>
                     </ul>
                 </div>
             </div>
-            <div class="contact" style=" margin-top:30px;  width:50% ">
+            <div class="contact">
 
-                <form
-                    style="border: solid 1px rgb(207, 207, 207); padding:1em; border-radius:10px; padding: 2.5em; margin:0 6em;">
+                <form>
                     <h3 style="color:rgb(87, 87, 87); width:100%">Contact Agent</h3>
                     <div class="row" style="margin-top: 1.5em; ">
                         <div class="col">

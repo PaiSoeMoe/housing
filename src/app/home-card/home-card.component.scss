@@ -162,7 +162,8 @@ font-weight: 400;
 
 }
 &__property-feature {
-columns: 2;
+display: grid;
+grid-template-columns: 1fr 1fr;
 padding: 15px 0;
 li {
 
@@ -429,7 +430,7 @@ left: 5px;
 
 
 
-@media (max-width: 1225px) {
+@media (max-width: 1200px) {
     
 .card{
     display:flex;
@@ -440,7 +441,7 @@ left: 5px;
 //992
 
 
-@media (min-width: 1225px) {
+@media (min-width: 1200px) {
     .card__property-item {   max-width: 45%;
     }
     

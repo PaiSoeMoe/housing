@@ -1,5 +1,10 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpService } from '../http.service';
+import { PaginationService } from '../pagination.service';
+import { SortingService } from '../sorting.service';
+import { ActivatedRoute } from '@angular/router';
+import { FilteringService } from '../filtering.service';
+
 
 @Component({
   selector: 'app-home',
@@ -9,27 +14,12 @@ import { HttpService } from '../http.service';
 export class ListingComponent implements AfterViewInit, OnInit {
 
   houses;
-  home = {
-    price: 6175,
-    bd: 2,
-    ba: 2,
-    sqft: 2417,
-    location: "Novel Stonewall Station, UNIT 746, 400 E Stonewall St, Charlotte, NC 28202",
-    description: "Wake up to what's next Novel Stonewall Station is where culture and comfort converge. Here, at the intersection of exclusivity and accessibility, is a celebration of the pathways that intersect in Charlotte's thriving city center: shopping, nightlife, food, entertainment, sports and, now, the pinnacle of the Uptown lifestyle. By LYNX, by bike or by foot, Novel Stonewall Station gives you access to the vibrant culture of Uptown with the comforts of everyday life in a way no other apartment community in Charlotte has before.",
-    gallery: ["assets/img/1.webp", "assets/img/2.webp", "assets/img/3.webp", "assets/img/4.webp", "assets/img/5.webp"],
-    type: "Apartment",
-    rating: 4.6,
-    features: {
-      pets: "Cats,small",
-      heating: "Contact manager",
-      parking: " No Data",
-      laundry: "Contact manager",
-      pool: "yes",
-      gym: "yes"
-    }
-
-  }
-
+  paginatedHouses;
+  pages;
+  filteredHouses;
+  pageNo = 1;
+  type;
+  status;
   @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
   map: google.maps.Map;
   lat = 35.2206552;
@@ -38,7 +28,7 @@ export class ListingComponent implements AfterViewInit, OnInit {
   mapOptions: google.maps.MapOptions = {
     center: new google.maps.LatLng(this.lat, this.lng),
     gestureHandling: 'greedy',
-    zoom: 8,
+    zoom: 8
   };
 
   // marker = new google.maps.Marker({
@@ -52,7 +42,6 @@ export class ListingComponent implements AfterViewInit, OnInit {
 
 
   mapInitializer() {
-    console.log(this.gmap);
     this.map = new google.maps.Map(this.gmap.nativeElement,
       this.mapOptions);
     for (let i of this.location) {
@@ -68,7 +57,7 @@ export class ListingComponent implements AfterViewInit, OnInit {
       marker.setMap(this.map);
     }
   }
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService, private pagination: PaginationService, private sorting: SortingService, private route: ActivatedRoute, private filtering: FilteringService) { }
 
   ngAfterViewInit() {
     this.mapInitializer();
@@ -76,8 +65,73 @@ export class ListingComponent implements AfterViewInit, OnInit {
   }
   ngOnInit() {
     this.http.getData().subscribe(data => {
+      console.log("get data");
       this.houses = data;
+      this.route.queryParams.subscribe(x => {
+        this.type = { type: (x.type) ? x.type : "" };
+        this.status = { status: (x.status) ? x.status : "" };
+        this.filteredHouses = this.filtering.filterBy(this.houses, x);
+        this.filteredHouses = this.sorting.sortByZip(this.filteredHouses);
+        this.init();
+      });
+
     })
+
+
+  }
+
+  init() {
+    this.paginatedHouses = this.pagination.paginate(1, this.filteredHouses);
+    this.pages = this.pagination.getPages(this.filteredHouses);
+  }
+
+  next(e) {
+    e.stopPropagation();
+    let n = this.pagination.next(this.pageNo, this.filteredHouses);
+    this.pageNo = n.pageNo;
+    this.paginatedHouses = n.paginatedProducts;
+
+  }
+  prev(e) {
+    e.stopPropagation();
+    let n = this.pagination.prev(this.pageNo, this.filteredHouses);
+    this.pageNo = n.pageNo;
+    this.paginatedHouses = n.paginatedProducts;
+  }
+  paginate(e, page) {
+    e.stopPropagation();
+    this.paginatedHouses = this.pagination.paginate(page, this.filteredHouses);
+    this.pageNo = page;
+  }
+  changeStatus(e) {
+    this.status = { status: e.target.value };
+    let keys = Object.assign({}, this.status, this.type);
+    console.log(keys);
+    this.filteredHouses = this.filtering.filterBy(this.houses, keys);
+    this.pageNo = 1;
+    this.init();
+
+
+  }
+  changeType(e) {
+    this.type = { type: e.target.value };
+    let keys = Object.assign({}, this.status, this.type)
+    console.log(keys);
+    this.filteredHouses = this.filtering.filterBy(this.houses, keys);
+    this.pageNo = 1;
+    this.init();
+  }
+
+  sort(e) {
+    let value = e.target.value;
+    if (value === "relevance") {
+      this.filteredHouses = this.sorting.sortByZip(this.filteredHouses);
+      this.init();
+      return -1;
+    }
+    this.filteredHouses = this.sorting.sortBy(this.filteredHouses, e.target.value);
+    this.init();
+    return -1;
   }
 
 }

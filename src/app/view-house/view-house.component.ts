@@ -11,6 +11,14 @@ export class ViewHouseComponent implements OnInit {
   constructor(public qvService: QuickViewService) { }
 
   ngOnInit() {
+
+  }
+  qvOff(e) {
+    e.stopPropagation();
+    this.qvService.qvOff();
+  }
+  showSlider(n) {
+    this.qvService.sliderOn(n);
   }
 
 }

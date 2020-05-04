@@ -14,5 +14,9 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
   }
+  stop(e) {
+    e.stopPropagation();
+  }
+
 
 }
