@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class FeaturedPropertySectionComponent implements OnInit {
   slideRate = 0;
   slider = "translateX(" + this.slideRate + "px)";
-  properties = [{ img: "assets/img/f1.webp" }, { img: "assets/img/f2.jpg" }, { img: "assets/img/f3.jpg" }, { img: "assets/img/f1.webp" }, { img: "assets/img/f2.jpg" }, { img: "assets/img/f3.jpg" }, { img: "assets/img/f1.webp" }]
+  properties = [{ img: "assets/img/gallery/1_0.jpg" }, { img: "assets/img/gallery/2_0.jpg" }, { img: "assets/img/gallery/3_0.jpg" },
+  { img: "assets/img/gallery/1_0.jpg" }, { img: "assets/img/gallery/2_0.jpg" }, { img: "assets/img/gallery/3_0.jpg" }, { img: "assets/img/gallery/1_0.jpg" }]
   trnZero = false;
   constructor() { }
 

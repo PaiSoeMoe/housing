@@ -19,6 +19,7 @@
                             class="fas fa-heart"></i></a></li>
                 <!-- <li data-toggle="tooltip" data-placement="top" title="Compare" data-original-title="Add to Compare">
                     <a><i class="fas fa-arrows"></i></a></li> -->
+
             </ul>
             <div class="hidden photo-gallery">
                 <a href="images/single-listing/property_view_1.jpg"></a>
@@ -35,7 +36,7 @@
         <h4><a (click)="qvOn($event,home)">Starting from {{home.price|currency:'USD':'symbol':'1.0'}}</a></h4>
         <div class="card__property-location">
             <i class="fas fa-map-marker-alt"></i>
-            <p>{{home.location}}</p>
+            <p style="min-height: 4em;">{{home.location}}</p>
         </div>
         <ul class="card__property-feature">
             <li> <i class="fas fa-bed"></i>

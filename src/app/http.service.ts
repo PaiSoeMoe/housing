@@ -10,7 +10,7 @@ export class HttpService {
 
   }
   getData() {
-    return this.http.get("http://localhost:3000/");
+    return this.http.get("https://mysterious-everglades-83861.herokuapp.com//housing");
 
   }
 

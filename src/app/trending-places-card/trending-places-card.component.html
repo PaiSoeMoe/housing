@@ -1,24 +1,25 @@
 <div class="card">
-    <div class="card__property-item">
-        <a class="card__property-img" href="single-listing-two.html"><img class="card__img" [src]="obj.gallery[3]"
+    <div class="card__property-item ">
+        <a class="card__property-img" (click)="qvOn($event,home)"><img class="card__img" [src]="home.gallery[0]"
                 alt="#">
         </a>
         <ul class="feature_text">
             <li class="feature_cb"><span> Featured</span></li>
-            <li class="feature_or"><span>For Sale</span></li>
+            <li class="feature_or"><span>For {{home.status}}</span></li>
         </ul>
         <div class="card__property-author-wrap">
-            <a href="#" class="card__property-author">
+            <a class="card__property-author">
                 <img src="" alt="...">
                 <span>Tony Stark</span>
             </a>
             <ul class="save-btn">
-                <li data-toggle="tooltip" data-placement="top" title="Photos"><a href=".photo-gallery"
+                <li data-toggle="tooltip" data-placement="top" title="Photos"><a (click)="qvOn($event,home)"
                         class="btn-gallery"><i class="fas fa-camera"></i></a></li>
-                <li data-toggle="tooltip" data-placement="top" title="Bookmark" data-original-title="Bookmark"><a
-                        href="#"><i class="fas fa-heart"></i></a></li>
-                <li data-toggle="tooltip" data-placement="top" title="Compare" data-original-title="Add to Compare"><a
-                        href="#"><i class="fas fa-arrows"></i></a></li>
+                <li data-toggle="tooltip" data-placement="top" title="Save" data-original-title="Save"><a><i
+                            class="fas fa-heart"></i></a></li>
+                <!-- <li data-toggle="tooltip" data-placement="top" title="Compare" data-original-title="Add to Compare">
+                    <a><i class="fas fa-arrows"></i></a></li> -->
+
             </ul>
             <div class="hidden photo-gallery">
                 <a href="images/single-listing/property_view_1.jpg"></a>
@@ -32,21 +33,37 @@
         </div>
     </div>
     <div class="card__property-title-box">
-        <h4><a href="single-listing-one.html">Villa on Hartford</a></h4>
+        <h4><a (click)="qvOn($event,home)">Starting from {{home.price|currency:'USD':'symbol':'1.0'}}</a></h4>
         <div class="card__property-location">
             <i class="fas fa-map-marker-alt"></i>
-            <p>{{obj.location}}</p>
+            <p style="min-height: 4em;">{{home.location}}</p>
         </div>
         <ul class="card__property-feature">
             <li> <i class="fas fa-bed"></i>
-                <span>{{obj.bd}} Bedrooms</span>
+                <span>{{home.bd}} Bedrooms</span>
             </li>
             <li> <i class="fas fa-bath"></i>
-                <span>{{obj.ba}} Bath</span>
+                <span>{{home.ba}} Bath</span>
             </li>
             <li> <i class="fas fa-arrows-alt"></i>
-                <span>{{obj.sqft}} sq ft</span>
+                <span>{{home.sqft}} sq ft</span>
             </li>
         </ul>
+        <!-- <div class="trending-bottom">
+            <div class="trend-left float-left">
+                <ul class="product-rating">
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star-half-alt"></i></li>
+                    <li><i class="fas fa-star-half-alt"></i></li>
+                </ul>
+            </div>
+            <a class="trend-right float-right">
+                <div class="trend-open">
+                    <p><span class="per_sale">starts from</span>$25000</p>
+                </div>
+            </a>
+        </div> -->
     </div>
 </div>
