@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-featured-property-section',
@@ -8,16 +9,25 @@ import { Component, OnInit } from '@angular/core';
 export class FeaturedPropertySectionComponent implements OnInit {
   slideRate = 0;
   slider = "translateX(" + this.slideRate + "px)";
-  properties = [{ img: "assets/img/gallery/1_0.jpg" }, { img: "assets/img/gallery/2_0.jpg" }, { img: "assets/img/gallery/3_0.jpg" },
-  { img: "assets/img/gallery/1_0.jpg" }, { img: "assets/img/gallery/2_0.jpg" }, { img: "assets/img/gallery/3_0.jpg" }, { img: "assets/img/gallery/1_0.jpg" }]
+  properties;
   trnZero = false;
-  constructor() { }
+  // [{ img: "assets/img/gallery/1_0.jpg" }, { img: "assets/img/gallery/2_0.jpg" }, { img: "assets/img/gallery/3_0.jpg" },
+  //   { img: "assets/img/gallery/1_0.jpg" }, { img: "assets/img/gallery/2_0.jpg" }, { img: "assets/img/gallery/3_0.jpg" }, { img: "assets/img/gallery/1_0.jpg" }]
+  constructor(private http: HttpService) { }
 
   ngOnInit() {
 
-    setInterval(() => {
-      this.next();
-    }, 2000);
+    this.http.getData().subscribe((data) => {
+      this.properties = data;
+      this.properties = this.properties.filter((d) => {
+        return d.status === "rent";
+      }).slice(6, 9);
+      this.properties = this.properties.concat(this.properties, this.properties[0]);
+      setInterval(() => {
+        this.next();
+      }, 2000);
+    })
+
   }
 
 

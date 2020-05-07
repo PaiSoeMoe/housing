@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { QuickViewService } from '../quick-view.service';
 
 @Component({
   selector: 'app-feature-property-card',
@@ -7,9 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FeaturePropertyCardComponent implements OnInit {
   @Input("property") property;
-  constructor() { }
+  constructor(private qvService: QuickViewService) { }
 
   ngOnInit() {
   }
 
+  qvOn(e, home) {
+    e.stopPropagation();
+    this.qvService.qvOn(home);
+
+  }
 }

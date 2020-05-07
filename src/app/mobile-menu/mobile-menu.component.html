@@ -6,19 +6,19 @@
     <div class="site-mobile-menu-body">
         <ul class="site-nav-wrap">
             <li class="has-children">
-                <a routerLink="">Home</a>
+                <a (click)="menuOff($event)" routerLink="">Home</a>
 
             </li>
             <li class="has-children">
-                <a routerLink='/listing' [queryParams]="{status: 'sale'}">Buy</a>
+                <a (click)="menuOff($event)" routerLink='/listing' [queryParams]="{status: 'sale'}">Buy</a>
 
             </li>
             <li class="has-children">
-                <a routerLink='/listing' [queryParams]="{status: 'rent'}">Rent</a>
+                <a (click)="menuOff($event)" routerLink='/listing' [queryParams]="{status: 'rent'}">Rent</a>
 
             </li>
             <li class="has-children">
-                <a routerLink="/news">News</a>
+                <a (click)="menuOff($event)" routerLink="/news">News</a>
 
             </li>
         </ul>
