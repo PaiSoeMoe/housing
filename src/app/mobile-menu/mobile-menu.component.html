@@ -6,19 +6,19 @@
     <div class="site-mobile-menu-body">
         <ul class="site-nav-wrap">
             <li class="has-children">
-                <a href="#">Home</a>
+                <a href="/">Home</a>
 
             </li>
             <li class="has-children">
-                <a href="#">Buy</a>
+                <a routerLink='/listing' [queryParams]="{status: 'sale'}">Buy</a>
 
             </li>
             <li class="has-children">
-                <a href="#">Rent</a>
+                <a routerLink='/listing' [queryParams]="{status: 'rent'}">Rent</a>
 
             </li>
             <li class="has-children">
-                <a href="#">News</a>
+                <a routerLink="/news">News</a>
 
             </li>
         </ul>

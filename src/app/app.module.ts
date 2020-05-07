@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ViewHouseComponent } from './view-house/view-house.component';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 import { FormsModule } from '@angular/forms';
+import { NewComponent } from './new/new.component';
 
 
 
@@ -41,7 +42,8 @@ import { FormsModule } from '@angular/forms';
     HomeCardComponent,
     IndexComponent,
     ViewHouseComponent,
-    MobileMenuComponent
+    MobileMenuComponent,
+    NewComponent
   ],
   imports: [
     BrowserModule,
