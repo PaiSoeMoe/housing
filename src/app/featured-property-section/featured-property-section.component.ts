@@ -14,10 +14,18 @@ export class FeaturedPropertySectionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    setInterval(() => {
+      this.next();
+    }, 2000);
   }
 
-  next(e) {
-    e.stopPropagation();
+
+  next(e?) {
+    if (e) {
+      e.stopPropagation();
+    }
+
     if (this.slideRate === -1005) {
       this.slideRate = 0;
       this.slider = "translateX(" + this.slideRate + "px)";
