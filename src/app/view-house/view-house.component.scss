@@ -17,7 +17,15 @@
     grid-template-columns: 1fr 1fr;
 }
 
+.mb-back{
+    background-color: rgb(255, 255, 255);
+    padding:1em 3em;
+    font-weight: 700;
+    color:rgb(2, 2, 255);
+    cursor: pointer;
+    display: hidden;
 
+}
 .imgs {
     object-fit: cover;
     overflow: hidden;
@@ -187,4 +195,11 @@
     }
 }
 
+}
+
+
+@media screen and (max-width:655px){
+    .mb-back{
+        display:block;
+    }
 }
