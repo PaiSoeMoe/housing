@@ -23,7 +23,7 @@
     font-weight: 700;
     color:rgb(2, 2, 255);
     cursor: pointer;
-    display: hidden;
+    display: none;
 
 }
 .imgs {
@@ -204,6 +204,6 @@
     }
     .main-img{
         max-height: 70vh;
-        max-width: 100%;
+        width: 100%;
     }
 }
