@@ -22,6 +22,11 @@
                 <div class="tab-content mt-30">
                     <div class="tab-pane fade show active" id="all_property" *ngFor="let tab of tabs"
                         [class.active]="tab.active" [class.show]="tab.active">
+                        <div class="text-center" *ngIf="loading">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-xl-4 col-md-6 col-sm-12" *ngFor="let item of tab.items">
                                 <app-trending-places-card [home]="item"></app-trending-places-card>

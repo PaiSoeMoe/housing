@@ -8,8 +8,7 @@ import { HttpService } from '../http.service';
 })
 export class TrendingPlacesComponent implements OnInit {
   data;
-
-
+  loading = true;
   tabs = [
     {
       name: "All Property", active: true, items: []
@@ -26,6 +25,7 @@ export class TrendingPlacesComponent implements OnInit {
   ngOnInit() {
     this.http.getData().subscribe((data) => {
       this.data = data
+      this.loading = false;
       this.tabs[0].items = this.data.slice(0, 3);
       this.tabs[1].items = this.data.filter((d) => {
         return d.status === "sale"

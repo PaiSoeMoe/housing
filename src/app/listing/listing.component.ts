@@ -20,6 +20,7 @@ export class ListingComponent implements AfterViewInit, OnInit {
   pageNo = 1;
   type;
   status;
+  loading = true;
   @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
   map: google.maps.Map;
   lat = 35.2206552;
@@ -67,6 +68,7 @@ export class ListingComponent implements AfterViewInit, OnInit {
     this.http.getData().subscribe(data => {
       console.log("get data");
       this.houses = data;
+      this.loading = false;
       this.route.queryParams.subscribe(x => {
         this.type = { type: (x.type) ? x.type : "" };
         this.status = { status: (x.status) ? x.status : "" };
